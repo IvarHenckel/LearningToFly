@@ -36,7 +36,7 @@ header img {
 .jumbotron {
   display: flex;
   align-items: center;
-  background: url("testadennaSamreKvalle.jpg") no-repeat center center;
+  background: url("design/backgroundimage/testadennaSamreKvalle.jpg") no-repeat center center;
   background-size: cover;
   color: #ffffff;
   height: 500px;

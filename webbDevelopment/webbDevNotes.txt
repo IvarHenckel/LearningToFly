@@ -209,7 +209,8 @@ freeinfinity verkar ju skitnajs i starten för att testa. Finns ju en djungel av
 
 TODO: Jag är ju egentligen redo att start en mycket enkel hemsida på nätet. Men jag borde nog gå kurserna ovan bara för att se om det är något jag behöver använda. Vet inte ens om jag behöver javascript egentligen.
 
-Nästa steg: 	- Lägg upp allt på git.
-		- Få länken till classic flies att gå till ett annat fönster av hemsidan, kan då ta coden från hur jag har det nu nedan.
-		- På de andra två kan jag bara lägga till "under construction så länge"
-		-Fixa reklam innan jag lägger upp hemsida
+Nästa steg: 	- På de andra två kan jag bara lägga till "under construction så länge"
+		-Fixa/Kolla reklam innan jag lägger upp hemsida
+
+		Får det inte att funka med JSON fil. Tydligen funkardet inte med säkerhet att hämta från lokal JSON-fil.
+		Onödigt att lägga tid på det. Lägg till red tag endast sedan är det ju dags för databas.

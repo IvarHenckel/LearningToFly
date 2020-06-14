@@ -6,13 +6,49 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="main.css">
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+        <script>
+            
+
+            $(function() {
+
+
+            var flies = [];
+            var k=0;
+
+            $.getJSON('classic.json', function(data) {
+                $.each(data.flies, function(i, f) {
+                    var row = "";
+                    //if(k % 2 === 0){
+                        row = "<div class=\"row\">";
+                    //}
+                    row = row + "<figure class=\"col-sm-6\">" + 
+                                    "<p>trout</p>" +
+                                    "<img src=\"https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/kitchen.jpg\"/>" +
+                              "</figure>";
+                    //var row = "<tr>" + "<td>" + f.firstName + "</td>" +
+                    //"<td>" + f.lastName + "</td>" + "<td>" + f.job + "</td>" + "<td>" + f.roll + "</td>" + "</tr>"
+                    //if(k % 2 === 1){
+                        row = row + "<div class=\"row\">";
+                    //}
+                    $(row).appendTo("#classicFlies tbody");
+                    
+                    k++;
+                });
+
+            });
+
+            });
+        </script>
     </head>
-    <body>
+    <body onload="load()">
         <header class="container">
             <div class="row">
-              <h1 class="col-sm-6"> Learning To Fly (BETA) <img src="loggaversion1medvingar.jpg"/></h1>
+              <h1 class="col-sm-6"> Learning To Fly (BETA) <img src="design/loggaversion1medvingar.jpg"/></h1>
               <nav class="col-sm-6 text-right">
-                <a href="index.html"> <img src="home.png"></a>
+                <a href="index.html"> <img src="design/home.png"></a>
                 <a href="classicFlies.html">Classic Fly Patterns</a>
                 <a href="https://www.google.se">Equipment</a>
                 <a href="https://www.google.se">Beginners Tutorial</a>
@@ -20,9 +56,9 @@
             </div>
           </header>
 
-          <section class="container">
-            <div class="row">
-              <figure class="col-sm-6">
+          <section class="container" id="classicFlies">
+            <!-- <div class="row">
+              <figure class="col-sm-6" >
                 <p>trout</p>
                 <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/kitchen.jpg"/>
               </figure>
@@ -40,7 +76,10 @@
                 <p>Grayling</p>
                 <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/antique.jpg"/>
               </figure>
-            </div>
+            </div> -->
+            <tbody>
+
+            </tbody>
           </section>
 
           <footer class="container">
