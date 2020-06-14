@@ -1,0 +1,215 @@
+HTLM====================================================================================================================================================
+
+<h1> Heading </h1> //This makes a heading, h2, h3 .... h6 gives subheadings
+
+<p> This gives a paragraph with text </p>
+
+<p> <a href="https://www.google.com"> link </a> The word 'link' will now have a link to the google website</p>
+// <a> is called an anchor element, href is an attribute
+
+<img src="https://s3.amazonaws.com/codecademy-content/picture.jpg"/> //adds a picture
+// Image URLs typically end with the .jpg or .png file extension. 
+// Image elements are self-closing, which means they do not need a closing tag.
+
+<video width="320" height="240" controls><source src="https://s3.amazonaws.com/codecademy-content/ollie.mp4" type="video/mp4"></video>
+//This adds a video, controls: Adds play, pause and volume control, source src: Sets the URL of the video to play, type: Specifies different video formats.
+//Can be used for all of the fly-tutorial videos probably
+
+<ul> //unordered list
+    <li>sign up</li>
+    <li>search bikes</li> //list items
+</ul> //Web developers refer to the enclosing element as the parent element and the enclosed elements as children. 
+//Code indentation signifies the relationship between parent and child elements.
+
+//Div elements divide your page by enclosing other elements. 
+<div class="main"> //It seems that we can put the class attribute at each element individually if we wanted to.
+	<p>Here we can put as many HTLM-elements as we like (we can also nestle divisions) </p>
+</div>
+
+
+//Metadata processes communicate vital information to the web browser, but are not visible to a webpage visitor.
+//<!DOCTYPE html>: Tells the web browser to expect an HTML document.
+//<html>...</html>: The root of the HTML document and parent of all other HTML elements on the webpage.
+//<head>...</head>: Enclose other metadata about the site, such as its title.
+//<title>...</title>: Contains the site’s title, which is one way users can find your site through a search engine, like Google.
+//<meta charset="utf-8"/>: Tells the web browser which character set to use. In this case, the character set is “utf-8”.
+
+CSS==============================================================================================================================================
+The HTML link element links a CSS file to an HTML file so that CSS styling can be applied.
+<head>
+  <title>Some title</title>
+  <link rel="stylesheet" type="text/css" href="main.css"/>  //The CSS from main.css is now applied to the HTML elements in index.html.
+</head>
+//rel: Specifies the relationship between the current file and the file being linked to
+//type: Specifies the type of file linked to.
+//href: Provides the URL of the file being linked to.
+
+//rule: a list of CSS instructions for how to style a specific HTML element or group of HTML elements.
+
+
+h1 { //selector: specifies exactly which HTML elements to style. Here h1 is the selector.
+   color: red; //colors can be given on "named form": red, or #ff0000 or rgb(255,0,0)
+   //properties and values: located inside the { } brackets, specify what aspect of the selector to style.
+   font-size: 32px; //In the diagram’s example, the color property is set to red, which will display all h1 elements in red.
+   font-family: Palatino, 'Palatino Linotype', serif; //serif is a fallback font here. They are included in case a browser does not support the first font. Multiple fallback fonts can be included.
+}	       
+
+//we can use class selectors to target classes of HTML elements. Then the properties will be applied to all types of elements inside the class.
+.hero {
+	padding: 250px 0;
+	font-size: 30px; font-size can be given in px (pixels), em (A relative value that changes in proportion to the font-size of the parent) or rem (Rems can be used to ensure that HTML elements scale in proportion to each other on various web browsers and screen sizes.)
+	background-image: url("https://s3.amazonaws.com/bg.jpg");
+  	background-size: cover; //The picture is zoomed out to cover the hero section with whole picture
+}
+
+
+<a id="learn-code" href="https://www.codecademy.com">Click here to learn to code!</a> //Adding an id to a htlm element we can refere to it specificly in css
+#learn-code {//If an HTML element is using both id and class attributes, the CSS rule for the id will take precedence over that of the class.
+  color: #2e69a3;  
+}
+
+//An important part of styling a webpage with CSS is organizing boundaries and space. The CSS box model illustrates each of these properties.
+
+	   ---------margin------------ //distance betwee objects
+	   |   -------border----      |//the actual border
+	   |   | ---padding-   |      |//distance to the border
+	   |   | | content |   |      |//the actual content
+	   |   | -----------   |      |
+	   |    ----------------      |
+	   ---------------------------
+.some-class {  
+  margin: 2px; //We can use margin-top/margin-bottom/margin-left/margin-right to only adjust margin on one side
+  border: 5px solid #FFF; //thickness, type(solid, dotted, dashed etc), color
+  padding: 30px;
+}
+
+//The CSS display and position lets us move elements around on the page and create unique page layouts. block and inline are two different display types
+//HTML heading, paragraph, and unordered list elements are block level: each appears on its own line on the webpage.
+//HTML image and anchor elements are displayed inline: they appear on the same line as their neighboring elements on the webpage.
+nav ul {
+  display: inline; //We can overwrite display types
+}
+
+//By using float, we have the option of floating elements left or right. To fill in spaces?
+.contact-btn {
+  float: right;
+}
+
+.gallery {
+  margin-top: 20px;
+  display: flex; //flex can be used to easily align multiple page elements (children) horizontally
+  flex-wrap: wrap; //We can make sure no child element moves off the page by using flex-wrap: wrap;
+  justify-content: center // centers rows of children elements
+}
+
+//The position property enables you to position HTML elements in exact locations on a webpage. One useful value for this property is relative.
+//This value positions page elements on a webpage relative to where they would normally appear!
+.contact-btn a {
+  position: relative;
+}
+.contact-btn a:active { //:active is a psuedo-class selector, which we use to style an element only while it’s being clicked.
+  top: 2px; //top, left, bottom, and right shifts an element away from where it would have normally appeared on the page.
+  left: 10px;
+}
+
+//BOOTSTRAP ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ//
+With bootstrap we can use "finished" classes for formatting a page. Note bootstrap classes usually makes the elements change size automatically depending on the window size.
+<nav class="col-sm-8 text-right"> would give a nav-bar to (?) column 8 (bootstrap divides the screen into 12 columns)
+and text to the right.
+
+//In <head> to link to bootstrap
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<section class="jumbotron"> //One of the bootstrap classes, this one is like a header
+  <div class="container"> //One of the bootstrap classes
+    <div class="row text-center"> //One of the bootstrap classes
+       <h2>Fly Fishing Patterns</h2>
+        <h3>Trouts hate it!</h3>
+        <a class ="btn btn-primary" href="#" role="button"> //This is a button, # is a placeholder for an actual url
+          Search for flies!
+        </a>
+    </div>
+  </div>
+</section>
+
+Obs https://www.codecademy.com/courses/make-a-website/lessons/bootstrap/exercises/supporting-content del 6 av 8 kan vara en ide till när man söker på flugor efter fiskart/flugtyp
+<section class="container">
+  <div class="row">
+    <figure class="col-sm-6">
+      <p>trout</p>
+      <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/kitchen.jpg"/>
+    </figure>
+    <figure class="col-sm-6">
+      <p>Pike</p>
+      <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/woodwork.jpg"/>
+    </figure>
+  </div>
+  <div class="row">
+    <figure class="col-sm-6">
+      <p>Char</p>
+      <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/gifts.jpg"/>
+    </figure>
+    <figure class="col-sm-6">
+      <p>Grayling</p>
+      <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/antique.jpg"/>
+    </figure>
+  </div>
+</section>
+
+OBS allmänt när det gäller detta så handlar det väl mest om att googla efter templates?
+
+<footer class="container"> //Footer
+    <div class="row">
+      <p class="col-sm-4">
+        &copy; 2020 LTF //&copy blir copyright symbolen
+      </p>
+      <ul class="col-sm-8">
+
+      </ul>
+    </div>
+  </footer>
+
+
+--------SETTING UP YOUR DOMAIN --------------How Websites Work-----------------------------
+Once you create the files that make up your website, you need a web hosting server to store those 
+files in a location that other people can access. Typically these servers are owned by web hosting 
+companies, such as Namecheap.
+
+Man borde ju kunna köra en egen server. Dock så måste man ju ha en domän? och en domännamnsserver det är ju svårt att fixa själv?
+
+A domain name should be short, memorable, and easy to spell. When you decide on your name, share it with some friends or colleagues. Will they be able to spell it correctly?
+
+Namespace erbjuder 1 år gratis för codeacademy studenter 2020-06-14 startade jag en sida, de ska skicka ett mejl som påminnelse innan betalning börjar
+
+Man får inte allt utan att betala dock. Kolla på gratis sidor
+
+github pages
+netify //Verkar som de inte kan ha databaser o så?
+google cloud platform? free tier ska funka med dynamiska websidor (en som säger mindre än 1 dollar per år)
+
+Man borde ju göra en linkande hemsida som bara tar en andel av det som hemsidan generar, dvs det kostar inget att ha en sida så länge ingen använder den? Fast man borde inaktivera hemsidor som inte generar något och som inte är under utveckling. (Typ om det inte har pushats tillräckligt på ett tag.) Eller bara låta det vara gratis att ha en period och sedan måste de generera pengar.
+
+aws microserver free tier ska funka med dynamiska websidor
+
+Det kan ju vara en mycket bra ide att göra en statisk hemsida först. Bara det är ju lärorikt osv.
+
+https://www.youtube.com/watch?v=vIJdypOqlL4
+
+databaserna behövs ju inte förrän man får lägga till själv ? Långt var tills dess ändå ju?
+
+verkar som att man använder php för att skripta databasen och MySQL eller annat för själva datbasen.
+
+freeinfinity verkar ju skitnajs i starten för att testa. Finns ju en djungel av gratis sidor.
+
+
+
+///////https://www.codecademy.com/courses/introduction-to-javascript/lessons/introduction-to-javascript/exercises/intro
+
+//////https://www.codecademy.com/learn/build-interactive-websites
+
+TODO: Jag är ju egentligen redo att start en mycket enkel hemsida på nätet. Men jag borde nog gå kurserna ovan bara för att se om det är något jag behöver använda. Vet inte ens om jag behöver javascript egentligen.
+
+Nästa steg: 	- Lägg upp allt på git.
+		- Få länken till classic flies att gå till ett annat fönster av hemsidan, kan då ta coden från hur jag har det nu nedan.
+		- På de andra två kan jag bara lägga till "under construction så länge"
+		-Fixa reklam innan jag lägger upp hemsida
